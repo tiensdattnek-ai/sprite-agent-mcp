@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.vitest/
+*.log
+.DS_Store
+.env
+.env.local
+sprite-output/
+!sprite-output/.gitkeep
+*.tsbuildinfo
+.arena/
+.playwright-cli/

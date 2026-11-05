@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torch Flame — loop — sprite-agent-mcp</title>
+<style>
+:root{--bg:#14121c;--panel:#1e1b2b;--line:#332e49;--txt:#f3eaff;--muted:#a99fc4;--hi:#ffcc66}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a2340,var(--bg));color:var(--txt);font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:22px}
+h1{margin:0;font-size:22px;letter-spacing:.5px}h1 b{color:var(--hi)}.sub{color:var(--muted);font-size:12px}
+.badge{border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--muted);font-size:11px}
+.grid{display:grid;grid-template-columns:minmax(280px,1fr) 300px;gap:22px}@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 18px 50px #0005}
+.stage{position:relative;display:grid;place-items:center;min-height:340px;background:
+ linear-gradient(45deg,#232033 25%,transparent 25%,transparent 75%,#232033 75%),
+ linear-gradient(45deg,#232033 25%,transparent 25%,transparent 75%,#232033 75%);
+ background-size:20px 20px;background-position:0 0,10px 10px;border-radius:10px;overflow:hidden;padding:24px;border:1px solid var(--line)}
+.stage canvas{image-rendering:pixelated;image-rendering:crisp-edges;filter:drop-shadow(0 10px 16px #0008)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+button{background:#2c2642;color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:8px 14px;cursor:pointer;font:inherit}
+button:hover{border-color:var(--hi);color:var(--hi)}button.primary{background:var(--hi);color:#241c0a;border-color:var(--hi);font-weight:700}
+input[type=range]{accent-color:var(--hi);width:120px}label{color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding:4px 2px 10px}
+.strip canvas{image-rendering:pixelated;width:64px;height:64px;object-fit:contain;background:#191625;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:4px}
+.strip canvas.on{border-color:var(--hi);box-shadow:0 0 0 2px #ffcc6655}
+.swatches{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}.sw{width:20px;height:20px;border-radius:4px;border:1px solid #0006}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:400}
+a{color:var(--hi)}.hint{color:var(--muted);font-size:11px;margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.tag{display:inline-block;background:#2c2642;border-radius:6px;padding:1px 6px;margin:2px;font-size:10px;color:var(--muted)}
+</style></head><body><div class="wrap">
+<header><div><h1>✦ <b>Torch Flame — loop</b> <span class="sub">/ sprite-agent-mcp</span></h1>
+<div class="sub" id="meta"></div></div><div class="badge">MCP · READ-ONLY REPO · DO NOT EDIT SOURCE</div></header>
+<div class="grid"><div class="card">
+<div class="stage"><canvas id="main"></canvas><canvas id="onion" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;pointer-events:none"></canvas></div>
+<div class="controls"><button id="play" class="primary">▶ Play</button><button id="prev">◀</button><button id="next">▶</button>
+<label>zoom <input id="zoom" type="range" min="1" max="16" value="8"></label>
+<label>onion <input id="onionChk" type="checkbox"></label><span class="sub" id="status"></span></div>
+<div class="strip" id="strip"></div></div>
+<div class="card"><h3 style="margin:0 0 10px;font-size:14px">Project</h3><table id="info"></table>
+<h3 style="margin:20px 0 8px;font-size:14px">Palette <span class="sub" id="palName"></span></h3><div class="swatches"><span class="sw" style="background:#080a18" title="#1 #080a18"></span><span class="sw" style="background:#121936" title="#2 #121936"></span><span class="sw" style="background:#1c2b5a" title="#3 #1c2b5a"></span><span class="sw" style="background:#273c7d" title="#4 #273c7d"></span><span class="sw" style="background:#2b6ea8" title="#5 #2b6ea8"></span><span class="sw" style="background:#00b8d4" title="#6 #00b8d4"></span><span class="sw" style="background:#26e6ff" title="#7 #26e6ff"></span><span class="sw" style="background:#b3f7ff" title="#8 #b3f7ff"></span><span class="sw" style="background:#3b1163" title="#9 #3b1163"></span><span class="sw" style="background:#711a9c" title="#10 #711a9c"></span><span class="sw" style="background:#b02ccf" title="#11 #b02ccf"></span><span class="sw" style="background:#ff3cc7" title="#12 #ff3cc7"></span><span class="sw" style="background:#ff7ae0" title="#13 #ff7ae0"></span><span class="sw" style="background:#ffd1f2" title="#14 #ffd1f2"></span><span class="sw" style="background:#f7f7ff" title="#15 #f7f7ff"></span><span class="sw" style="background:#ffffff" title="#16 #ffffff"></span><span class="sw" style="background:#fe00c9" title="#17 #fe00c9"></span><span class="sw" style="background:#3b3bae" title="#18 #3b3bae"></span><span class="sw" style="background:#201b4a" title="#19 #201b4a"></span><span class="sw" style="background:#f8fffe" title="#20 #f8fffe"></span><span class="sw" style="background:#fd83cc" title="#21 #fd83cc"></span><span class="sw" style="background:#000000" title="#22 #000000"></span><span class="sw" style="background:#f600c6" title="#23 #f600c6"></span><span class="sw" style="background:#fc46c0" title="#24 #fc46c0"></span></div>
+<h3 style="margin:20px 0 8px;font-size:14px">Frames</h3><div id="frameTags"></div>
+<div class="hint">Generated by <b>sprite-agent-mcp</b>. Agents must only call MCP tools — never edit repository source files. Export with <code>sprite_export</code>.</div>
+</div></div>
+<script>
+const D={"frames":[{"name":"torch_00","duration":100,"tags":["fx","loop","environment"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAS1BMVEUAAAAIChgSGTYcK1onPH0rbqgAuNQm5v+z9/87EWNxGpywLM//PMf/euD/0fL39//////+AMk7O64gG0r4//79g8wAAAD2AMb8RsCdZIyIAAAAAXRSTlMAQObYZgAAAPJJREFUeNrt2ssKwyAQQNEoXbgISKiP///TIjggYruqD/TeTaCFzglMNqbXRURERET0x5RSylpr0xXA/oA05F0kQ4fdPYApgPTjzjknw733/s6pXNclBDAdIIiUDH+quj8FAKYCWstXA0IIoetTAGAJwF3UWkIAewJaC9gCpM+6LCKAZQB3FYCzAcYYA+BcgMkBAAAAQJl8B+BsQIwxAtgTUB5Q/QJ0P6AAMB3wbRG7LyCAJQD1Igpi2HAASwBaiKHDASwDkBfWqaHDASwFeOUAAAAAAAAAAAAAAABwJkBrrUMRgLMA5SFF13/PAVgaQNv0AU2Fm4FEB6O+AAAAAElFTkSuQmCC"},{"name":"torch_01","duration":100,"tags":["fx","loop","environment"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAS1BMVEUAAAAIChgSGTYcK1onPH0rbqgAuNQm5v+z9/87EWNxGpywLM//PMf/euD/0fL39//////+AMk7O64gG0r4//79g8wAAAD2AMb8RsCdZIyIAAAAAXRSTlMAQObYZgAAAQBJREFUeNrt208LwiAYgPEUDx4Gkqn7/t80BF8Q2XYp/7A9z2W1Q++PGLbaer2IiIiIfkgppT5V+TmA5wBkeIwxbiVVAnA/QH5R55yTASGE0A6XrLX27wgA0wGCqA++7aKUUuryLgCYCmgXoHrguwkAgK6figCmAo5OQo4AXVdDAEsA2hMQAAAAPBdgSwAAAAAAAAAAAAAA1OX9+77vAO4L8N77vL0CdPuhEsB0gCAE0CKGXbAAMB1wthh1XYQALAM4OxCHDQewDEBuXBLEsOEAlgIYY0x+nErD76ICsAQgN3Q4AAAAAAAAAGAZgNZapyoAzwLUX1CH/qsCwFIAuk1fw227IR8NcRgAAAAASUVORK5CYII="},{"name":"torch_02","duration":100,"tags":["fx","loop","environment"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAS1BMVEUAAAAIChgSGTYcK1onPH0rbqgAuNQm5v+z9/87EWNxGpywLM//PMf/euD/0fL39//////+AMk7O64gG0r4//79g8wAAAD2AMb8RsCdZIyIAAAAAXRSTlMAQObYZgAAAPVJREFUeNrt2ssKhCAUgOGUWbgIJAYv7/+kg6BwEIvZeMH+fxPVwi84CEXHQURERPRHSillrbXp2DoHsD+gLPp0DmB/AFFrKL8ilRu2QQGYBpALO+fcJYoxxu5PD2AqQC5+5q4q773vhgCwDOAU1YCyIQHYD9AawDtAl0EEsAzgrKoB6RqA9wCMMQbAewEmBwCArNwDAADA3oB0fAL4HID9AAXxD6Dr2zGA6YC7Qew+gACWAMhBLIhUCCEMWRzAEoAaIT9KDf2jAsB0QNqQPrlhwwcAAAAAAAAAAAAAAAAAAJYCaK21FwF4F6D1keIYHYDpANqmH3XbkpFgqaUlAAAAAElFTkSuQmCC"},{"name":"torch_03","duration":100,"tags":["fx","loop","environment"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAS1BMVEUAAAAIChgSGTYcK1onPH0rbqgAuNQm5v+z9/87EWNxGpywLM//PMf/euD/0fL39//////+AMk7O64gG0r4//79g8wAAAD2AMb8RsCdZIyIAAAAAXRSTlMAQObYZgAAAPBJREFUeNrt2bsKAyEQQNFVUlhsE+Lj//80DCgM4qYI+EDvbUK2yJxi2E3MdRERERER/ZExxnxU8h7AOYAyPIQQ7pzJAdgfoIc759ytGoIAMA0gH+y99/XyvXOCkdcYY+yCADAdUBCSXrx3FYD9AbKEvwDdb0YApgFaX0JaALnWZREBLAPQw8sDCMCZAJcDAAAAAAAAAADQyfWUUgKwJ6A+oHgCDDshATANUBYRAIAa0f0mBGAJQOvAeuhwAEsAnv64GDYcwBIAjSgBOBMgD6ZXDgAAAAAAAAAAAMCZAGutjSoAZwFaP06u0QGYDqBt+gJapKLxyenEIAAAAABJRU5ErkJggg=="}],"w":128,"h":128,"sw":32,"sh":32,"scale":4,"project":"Torch Flame — loop","palette":"neon16","colorCount":24,"count":4};
+const main=document.getElementById('main'),onion=document.getElementById('onion'),strip=document.getElementById('strip');
+let cur=0,playing=false,timer=null,zoom=8;
+const imgs=D.frames.map(f=>{const i=new Image();i.src='data:image/png;base64,'+f.data;return i;});
+function applyZoom(){const px=D.sw*zoom;main.style.width=px+'px';main.style.height=D.sh*zoom+'px';onion.style.width=px+'px';onion.style.height=D.sh*zoom+'px';}
+function draw(){const w=D.w,h=D.h;main.width=w;main.height=h;onion.width=w;onion.height=h;applyZoom();
+ const c=main.getContext('2d');c.imageSmoothingEnabled=false;c.clearRect(0,0,w,h);
+ if(imgs[cur].complete)c.drawImage(imgs[cur],0,0,w,h);else imgs[cur].onload=()=>c.drawImage(imgs[cur],0,0,w,h);
+ const prev=(cur-1+D.count)%D.count;const oc=onion.getContext('2d');oc.clearRect(0,0,w,h);oc.imageSmoothingEnabled=false;
+ onion.style.opacity=document.getElementById('onionChk').checked?'0.28':'0';
+ if(imgs[prev].complete)oc.drawImage(imgs[prev],0,0,w,h);else imgs[prev].onload=()=>oc.drawImage(imgs[prev],0,0,w,h);
+ document.getElementById('status').textContent='frame '+(cur+1)+'/'+D.count+' · '+D.frames[cur].duration+'ms · '+D.frames[cur].name;
+ [...strip.children].forEach((e,i)=>e.classList.toggle('on',i===cur));}
+function step(n){cur=(cur+n+D.count)%D.count;draw();if(playing)schedule();}
+function schedule(){clearTimeout(timer);timer=setTimeout(()=>step(1),D.frames[cur].duration);}
+document.getElementById('play').onclick=()=>{playing=!playing;document.getElementById('play').textContent=playing?'❚❚ Pause':'▶ Play';if(playing)schedule();else clearTimeout(timer);};
+document.getElementById('prev').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);
+document.getElementById('onionChk').onchange=draw;
+document.getElementById('zoom').value=D.scale;zoom=D.scale;
+document.getElementById('zoom').onchange=e=>{zoom=+e.target.value;applyZoom();};
+imgs.forEach((im,i)=>{const c=document.createElement('canvas');c.width=c.height=64;c.title=D.frames[i].name;
+ if(im.complete){const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,0,0,64,64);}else im.onload=()=>{const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,0,0,64,64);};
+ c.onclick=()=>{cur=i;draw();};strip.appendChild(c);});
+document.getElementById('meta').textContent=D.project+' · '+D.sw+'×'+D.sh+' px · '+D.count+' frames · palette '+D.palette+' ('+D.colorCount+' colors)';
+document.getElementById('info').innerHTML='<tr><th>Size</th><td>'+D.sw+'×'+D.sh+' px</td></tr>'+'<tr><th>Frames</th><td>'+D.count+'</td></tr>'+
+ '<tr><th>Total time</th><td>'+D.frames.reduce((a,f)=>a+f.duration,0)+' ms</td></tr>'+'<tr><th>Palette</th><td>'+D.palette+' · '+D.colorCount+' colors</td></tr>'+
+ '<tr><th>Export</th><td>PNG · GIF · APNG · SVG · atlas</td></tr>';
+document.getElementById('palName').textContent=D.palette;
+document.getElementById('frameTags').innerHTML=D.frames.map((f,i)=>'<span class="tag">'+(i+1)+' '+f.name+(f.tags.length?' · '+f.tags.join('/'):'')+'</span>').join('');
+draw();
+</script></body></html>

@@ -1,0 +1,48 @@
+name: 🐛 Bug report
+description: A sprite-agent-mcp tool misbehaves
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ Agents: do NOT edit the repository. Only humans should file issues.
+        If a tool errors, change the arguments and retry — see POLICY.md.
+  - type: dropdown
+    id: client
+    attributes:
+      label: MCP client
+      options: ["Arena.ai Agent Mode", "Claude Desktop", "VS Code", "Cursor", "Claude Code", "Other"]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: sprite-agent-mcp version / protocol version
+      placeholder: "1.0.0 / 2025-06-18"
+    validations: { required: true }
+  - type: textarea
+    id: call
+    attributes:
+      label: Exact tool call (name + arguments JSON)
+      render: json
+    validations: { required: true }
+  - type: textarea
+    id: response
+    attributes:
+      label: Tool response / error
+      render: shell
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations: { required: true }
+  - type: input
+    id: integrity
+    attributes:
+      label: Output of sprite_verify_integrity
+      placeholder: "clean: true"
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else (OS, Node version, exported files)

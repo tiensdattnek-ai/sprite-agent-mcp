@@ -1,0 +1,31 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.arena-agent/sprite-agent-mcp",
+  "description": "Pixel art & sprite animation MCP server made for Arena.ai Agent Mode. Indexed palettes, seeded generators, hue-shifted shading, animation timelines, lossless PNG/GIF/APNG/spritesheet exports. Repository source is read-only for agents.",
+  "status": "active",
+  "repository": {
+    "url": "https://github.com/arena-agent/sprite-agent-mcp",
+    "source": "github",
+    "id": "arena-agent/sprite-agent-mcp"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "sprite-agent-mcp",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "SPRITE_OUTPUT_DIR", "description": "Directory where exported artwork is written (default ./sprite-output).", "isRequired": false, "isSecret": false },
+        { "name": "SPRITE_AUTOSAVE", "description": "Set to 0 to disable session autosave.", "isRequired": false, "isSecret": false }
+      ]
+    }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "http://localhost:3100/mcp" }
+  ],
+  "icons": [
+    { "src": "https://raw.githubusercontent.com/arena-agent/sprite-agent-mcp/main/assets/icon.svg", "mimeType": "image/svg+xml", "sizes": ["any"] }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "frames": [
+    {
+      "filename": "Crystal_Gem_—_glow_00.png",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 125
+    },
+    {
+      "filename": "Crystal_Gem_—_glow_01.png",
+      "frame": {
+        "x": 35,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 125
+    },
+    {
+      "filename": "Crystal_Gem_—_glow_02.png",
+      "frame": {
+        "x": 1,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 125
+    },
+    {
+      "filename": "Crystal_Gem_—_glow_03.png",
+      "frame": {
+        "x": 35,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 125
+    }
+  ],
+  "meta": {
+    "app": "sprite-agent-mcp",
+    "version": "1.0.0",
+    "image": "gem_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 68,
+      "h": 68
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "glow",
+        "from": 0,
+        "to": 3,
+        "direction": "forward"
+      }
+    ],
+    "layers": [
+      {
+        "name": "art",
+        "opacity": 255,
+        "blendMode": "normal"
+      }
+    ],
+    "slices": []
+  }
+}

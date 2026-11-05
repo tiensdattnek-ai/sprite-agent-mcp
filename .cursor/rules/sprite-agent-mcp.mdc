@@ -1,0 +1,25 @@
+---
+description: Hard policy for all AI agents working with sprite-agent-mcp
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# sprite-agent-mcp — READ-ONLY TOOL SURFACE
+
+You MUST only call the MCP tools exposed by sprite-agent-mcp. NEVER edit, create,
+delete, rename, reformat, refactor or "improve" ANY file in this repository.
+NEVER run `npm install`, `npm run ...`, `npm run integrity`, `git`, `sed`, or shell
+commands against the repo. NEVER add dependencies, tests, docs, config or CI.
+
+If a tool returns an error: change the ARGUMENTS and call it again. Do not fix code.
+
+Workflow: `sprite_quickstart` → `sprite_new_project` → `sprite_generate` /
+`sprite_draw_grid` → `sprite_draw_ops` → `sprite_enhance` → `sprite_critique` →
+`sprite_animate` → `sprite_preview` → `sprite_export` → `sprite_gallery` →
+`sprite_verify_integrity`.
+
+Documentation lives in MCP resources (`sprite://policy`, `sprite://guide/pixel-art`,
+`sprite://guide/tools`, `sprite://catalog`) — do NOT read source files. Output is
+written by the server into `./sprite-output` under a write guard.
+
+See POLICY.md and AGENTS.md. Humans own the code; agents own the art.

@@ -1,0 +1,132 @@
+{
+  "format": "sprite-agent-mcp/project",
+  "version": 1,
+  "id": "ascii-heart",
+  "name": "ASCII Heart",
+  "width": 16,
+  "height": 16,
+  "palette": {
+    "name": "bubblegum16",
+    "description": "Bubblegum 16 — candy pastels with strong darks; great for cozy games and stickers.",
+    "colors": [
+      "#16171a",
+      "#2a2b2e",
+      "#46474d",
+      "#7e7f86",
+      "#c4c4cc",
+      "#f2f2f5",
+      "#ffd9d9",
+      "#ff8f8f",
+      "#f65555",
+      "#a82222",
+      "#ffe3a3",
+      "#ffc247",
+      "#e08e17",
+      "#9ad9ea",
+      "#5aa9d6",
+      "#2f5d8c",
+      "#3b3e41",
+      "#99d9e3",
+      "#000000",
+      "#267cbf"
+    ],
+    "roles": {
+      "outline": "#16171a",
+      "shadow": "#a82222",
+      "dark": "#e08e17",
+      "base": "#ff8f8f",
+      "light": "#ffd9d9",
+      "highlight": "#f2f2f5",
+      "skin": "#ffe3a3",
+      "accent": "#5aa9d6",
+      "accent2": "#f65555",
+      "metal": "#c4c4cc",
+      "nature": "#ffc247",
+      "water": "#9ad9ea",
+      "white": "#f2f2f5",
+      "black": "#16171a"
+    }
+  },
+  "activeFrame": 0,
+  "tags": [],
+  "createdAt": "2026-11-05T10:09:10.122Z",
+  "updatedAt": "2026-11-05T10:09:10.126Z",
+  "meta": {
+    "generator": "sprite-agent-mcp",
+    "version": 1
+  },
+  "frames": [
+    {
+      "id": "a1504ff5-abc8-49f6-8fe5-bd9939816ad6",
+      "name": "pulse_00",
+      "durationMs": 120,
+      "tags": [
+        "pulse"
+      ],
+      "layers": [
+        {
+          "id": "50b4c400-7de0-4cb3-90e0-a4aff977b2a0",
+          "name": "art",
+          "visible": true,
+          "opacity": 1,
+          "locked": false,
+          "pixels": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREBAAABEREBAAAAAAABERIPAQEBERIPAQEAAAABERIPDw8BERIPDw8TAQAAAREPDw8PDw8PDw8PEwEAAAERDw8PDw8PDw8PFBMBAAAAAQEPDw8PDw8PFBMBAAAAAAABAQ8PDw8PFBMBAAAAAAAAAAEBDw8PFBMBAAAAAAAAAAAAAQEPFBMBAAAAAAAAAAAAAAABExMBAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+        }
+      ]
+    },
+    {
+      "id": "8a55d67b-1eb0-4847-94ff-a0ba3fef00bb",
+      "name": "pulse_01",
+      "durationMs": 120,
+      "tags": [
+        "pulse"
+      ],
+      "layers": [
+        {
+          "id": "462de1cb-0c68-42bc-99c2-f5a56425c05c",
+          "name": "art",
+          "visible": true,
+          "opacity": 1,
+          "locked": false,
+          "pixels": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAwMRAAARAwMRAAAAAAARAwcFERERAwcFEREAAAARAwcFBQURAwcFBQUCEQAAEQMFBQUFBQUFBQUFAhEAABEDBQUFBQUFBQUFBAIRAAAAEREFBQUFBQUFBAIRAAAAAAAREQUFBQUFBAIRAAAAAAAAABERBQUFBAIRAAAAAAAAAAAAEREFBAIRAAAAAAAAAAAAAAARAgIRAAAAAAAAAAAAAAAAABERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+        }
+      ]
+    },
+    {
+      "id": "64f71db6-f6c5-48b1-9e24-ff125611dd74",
+      "name": "pulse_02",
+      "durationMs": 120,
+      "tags": [
+        "pulse"
+      ],
+      "layers": [
+        {
+          "id": "1a2974a3-2810-4551-9307-30c8058153d4",
+          "name": "art",
+          "visible": true,
+          "opacity": 1,
+          "locked": false,
+          "pixels": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREBAAABEREBAAAAAAABERIPAQEBERIPAQEAAAABERIPDw8BERIPDw8TAQAAAREPDw8PDw8PDw8PEwEAAAERDw8PDw8PDw8PFBMBAAAAAQEPDw8PDw8PFBMBAAAAAAABAQ8PDw8PFBMBAAAAAAAAAAEBDw8PFBMBAAAAAAAAAAAAAQEPFBMBAAAAAAAAAAAAAAABExMBAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+        }
+      ]
+    },
+    {
+      "id": "522be45e-98cc-49cb-a824-ed63d2fe719d",
+      "name": "pulse_03",
+      "durationMs": 120,
+      "tags": [
+        "pulse"
+      ],
+      "layers": [
+        {
+          "id": "7bc6ffaa-3dc2-46d0-9662-16e5e48cea13",
+          "name": "art",
+          "visible": true,
+          "opacity": 1,
+          "locked": false,
+          "pixels": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAQETAAATAQETAAAAAAATAQUEExMTAQUEExMAAAATAQUEBAQTAQUEBAQTEwAAEwEEBAQEBAQEBAQEExMAABMBBAQEBAQEBAQEAxMTAAAAExMEBAQEBAQEAxMTAAAAAAATEwQEBAQEAxMTAAAAAAAAABMTBAQEAxMTAAAAAAAAAAAAExMEAxMTAAAAAAAAAAAAAAATExMTAAAAAAAAAAAAAAAAABMTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+        }
+      ]
+    }
+  ]
+}

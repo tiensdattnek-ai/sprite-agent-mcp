@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASCII Heart — sprite-agent-mcp</title>
+<style>
+:root{--bg:#14121c;--panel:#1e1b2b;--line:#332e49;--txt:#f3eaff;--muted:#a99fc4;--hi:#ffcc66}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#2a2340,var(--bg));color:var(--txt);font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:22px}
+h1{margin:0;font-size:22px;letter-spacing:.5px}h1 b{color:var(--hi)}.sub{color:var(--muted);font-size:12px}
+.badge{border:1px solid var(--line);border-radius:99px;padding:3px 10px;color:var(--muted);font-size:11px}
+.grid{display:grid;grid-template-columns:minmax(280px,1fr) 300px;gap:22px}@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 18px 50px #0005}
+.stage{position:relative;display:grid;place-items:center;min-height:340px;background:
+ linear-gradient(45deg,#232033 25%,transparent 25%,transparent 75%,#232033 75%),
+ linear-gradient(45deg,#232033 25%,transparent 25%,transparent 75%,#232033 75%);
+ background-size:20px 20px;background-position:0 0,10px 10px;border-radius:10px;overflow:hidden;padding:24px;border:1px solid var(--line)}
+.stage canvas{image-rendering:pixelated;image-rendering:crisp-edges;filter:drop-shadow(0 10px 16px #0008)}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+button{background:#2c2642;color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:8px 14px;cursor:pointer;font:inherit}
+button:hover{border-color:var(--hi);color:var(--hi)}button.primary{background:var(--hi);color:#241c0a;border-color:var(--hi);font-weight:700}
+input[type=range]{accent-color:var(--hi);width:120px}label{color:var(--muted);font-size:12px;display:flex;gap:8px;align-items:center}
+.strip{display:flex;gap:8px;overflow-x:auto;margin-top:16px;padding:4px 2px 10px}
+.strip canvas{image-rendering:pixelated;width:64px;height:64px;object-fit:contain;background:#191625;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:4px}
+.strip canvas.on{border-color:var(--hi);box-shadow:0 0 0 2px #ffcc6655}
+.swatches{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}.sw{width:20px;height:20px;border-radius:4px;border:1px solid #0006}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:400}
+a{color:var(--hi)}.hint{color:var(--muted);font-size:11px;margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.tag{display:inline-block;background:#2c2642;border-radius:6px;padding:1px 6px;margin:2px;font-size:10px;color:var(--muted)}
+</style></head><body><div class="wrap">
+<header><div><h1>✦ <b>ASCII Heart</b> <span class="sub">/ sprite-agent-mcp</span></h1>
+<div class="sub" id="meta"></div></div><div class="badge">MCP · READ-ONLY REPO · DO NOT EDIT SOURCE</div></header>
+<div class="grid"><div class="card">
+<div class="stage"><canvas id="main"></canvas><canvas id="onion" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;pointer-events:none"></canvas></div>
+<div class="controls"><button id="play" class="primary">▶ Play</button><button id="prev">◀</button><button id="next">▶</button>
+<label>zoom <input id="zoom" type="range" min="1" max="16" value="8"></label>
+<label>onion <input id="onionChk" type="checkbox"></label><span class="sub" id="status"></span></div>
+<div class="strip" id="strip"></div></div>
+<div class="card"><h3 style="margin:0 0 10px;font-size:14px">Project</h3><table id="info"></table>
+<h3 style="margin:20px 0 8px;font-size:14px">Palette <span class="sub" id="palName"></span></h3><div class="swatches"><span class="sw" style="background:#16171a" title="#1 #16171a"></span><span class="sw" style="background:#2a2b2e" title="#2 #2a2b2e"></span><span class="sw" style="background:#46474d" title="#3 #46474d"></span><span class="sw" style="background:#7e7f86" title="#4 #7e7f86"></span><span class="sw" style="background:#c4c4cc" title="#5 #c4c4cc"></span><span class="sw" style="background:#f2f2f5" title="#6 #f2f2f5"></span><span class="sw" style="background:#ffd9d9" title="#7 #ffd9d9"></span><span class="sw" style="background:#ff8f8f" title="#8 #ff8f8f"></span><span class="sw" style="background:#f65555" title="#9 #f65555"></span><span class="sw" style="background:#a82222" title="#10 #a82222"></span><span class="sw" style="background:#ffe3a3" title="#11 #ffe3a3"></span><span class="sw" style="background:#ffc247" title="#12 #ffc247"></span><span class="sw" style="background:#e08e17" title="#13 #e08e17"></span><span class="sw" style="background:#9ad9ea" title="#14 #9ad9ea"></span><span class="sw" style="background:#5aa9d6" title="#15 #5aa9d6"></span><span class="sw" style="background:#2f5d8c" title="#16 #2f5d8c"></span><span class="sw" style="background:#3b3e41" title="#17 #3b3e41"></span><span class="sw" style="background:#99d9e3" title="#18 #99d9e3"></span><span class="sw" style="background:#000000" title="#19 #000000"></span><span class="sw" style="background:#267cbf" title="#20 #267cbf"></span></div>
+<h3 style="margin:20px 0 8px;font-size:14px">Frames</h3><div id="frameTags"></div>
+<div class="hint">Generated by <b>sprite-agent-mcp</b>. Agents must only call MCP tools — never edit repository source files. Export with <code>sprite_export</code>.</div>
+</div></div>
+<script>
+const D={"frames":[{"name":"pulse_00","duration":120,"tags":["pulse"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAAWFxoqKy5GR01+f4bExMzy8vX/2dn/j4/2VVWoIiL/46P/wkfgjhea2epaqdYvXYw7PkGZ2eMAAAAmfL8lhnmwAAAAAXRSTlMAQObYZgAAAKNJREFUeNrt2jsOhDAMQEE4AdqF+5+VxjSWIkDhY+3OKyMrnipVhkGSJKnRGH1S23nvPAAAQF1AvugbTdHY6Og8AABAXcDeRbmz83PUhAAAAJQDTBcHAADwv4AlAgAAqA/IkK3HFgMAAJQB9EK6FwMAAJQBnIVcvhgAAKAMYA9y+2IAAIAygAyZU7cvBgAAKANoPUyvfXgEAAB4DSBJkiTpZ1oBVygp0HVfTQoAAAAASUVORK5CYII="},{"name":"pulse_01","duration":120,"tags":["pulse"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAAWFxoqKy5GR01+f4bExMzy8vX/2dn/j4/2VVWoIiL/46P/wkfgjhea2epaqdYvXYw7PkGZ2eMAAAAmfL8lhnmwAAAAAXRSTlMAQObYZgAAAKJJREFUeNrt2jsOhDAMQEEEi7bm/pelMY2lCFD4WLvzysiKp0qVYZAkSWq0RFNqO++dBwAAqAvIF32jOVoaHZ0HAACoC9i7KHd2foyaEAAAgHKA+eIAAAD+F/CJAAAA6gMyZOuxxQAAAGUAvZDuxQAAAGUAZyGXLwYAACgD2IPcvhgAAKAMIEPG1O2LAQAAygBaD9NrHx4BAABeA0iSJEn6mVZ5yNoBkfqGjwAAAABJRU5ErkJggg=="},{"name":"pulse_02","duration":120,"tags":["pulse"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAAWFxoqKy5GR01+f4bExMzy8vX/2dn/j4/2VVWoIiL/46P/wkfgjhea2epaqdYvXYw7PkGZ2eMAAAAmfL8lhnmwAAAAAXRSTlMAQObYZgAAAKNJREFUeNrt2jsOhDAMQEE4AdqF+5+VxjSWIkDhY+3OKyMrnipVhkGSJKnRGH1S23nvPAAAQF1AvugbTdHY6Og8AABAXcDeRbmz83PUhAAAAJQDTBcHAADwv4AlAgAAqA/IkK3HFgMAAJQB9EK6FwMAAJQBnIVcvhgAAKAMYA9y+2IAAIAygAyZU7cvBgAAKANoPUyvfXgEAAB4DSBJkiTpZ1oBVygp0HVfTQoAAAAASUVORK5CYII="},{"name":"pulse_03","duration":120,"tags":["pulse"],"data":"iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAAWFxoqKy5GR01+f4bExMzy8vX/2dn/j4/2VVWoIiL/46P/wkfgjhea2epaqdYvXYw7PkGZ2eMAAAAmfL8lhnmwAAAAAXRSTlMAQObYZgAAAJ5JREFUeNrt2sENgzAQRFGikArov9dczMXSChITGJH3j2jleQUwTZIkSUVL69G1fh+9BwAAyAX0D71ac2sp2nsPAACQC9h6qO/b+xICAAAQB5gPDgAA4H8BzxYAAEA+oIesnTYMAAAQAxiFDA8DAADEAD6FHD4MAAAQA9iC/HwYAAAgBlBBThsGAACIAVSQy354BAAAuAwgSZIk6Ta9AfPZ/cHjbhtGAAAAAElFTkSuQmCC"}],"w":128,"h":128,"sw":16,"sh":16,"scale":8,"project":"ASCII Heart","palette":"bubblegum16","colorCount":20,"count":4};
+const main=document.getElementById('main'),onion=document.getElementById('onion'),strip=document.getElementById('strip');
+let cur=0,playing=false,timer=null,zoom=8;
+const imgs=D.frames.map(f=>{const i=new Image();i.src='data:image/png;base64,'+f.data;return i;});
+function applyZoom(){const px=D.sw*zoom;main.style.width=px+'px';main.style.height=D.sh*zoom+'px';onion.style.width=px+'px';onion.style.height=D.sh*zoom+'px';}
+function draw(){const w=D.w,h=D.h;main.width=w;main.height=h;onion.width=w;onion.height=h;applyZoom();
+ const c=main.getContext('2d');c.imageSmoothingEnabled=false;c.clearRect(0,0,w,h);
+ if(imgs[cur].complete)c.drawImage(imgs[cur],0,0,w,h);else imgs[cur].onload=()=>c.drawImage(imgs[cur],0,0,w,h);
+ const prev=(cur-1+D.count)%D.count;const oc=onion.getContext('2d');oc.clearRect(0,0,w,h);oc.imageSmoothingEnabled=false;
+ onion.style.opacity=document.getElementById('onionChk').checked?'0.28':'0';
+ if(imgs[prev].complete)oc.drawImage(imgs[prev],0,0,w,h);else imgs[prev].onload=()=>oc.drawImage(imgs[prev],0,0,w,h);
+ document.getElementById('status').textContent='frame '+(cur+1)+'/'+D.count+' · '+D.frames[cur].duration+'ms · '+D.frames[cur].name;
+ [...strip.children].forEach((e,i)=>e.classList.toggle('on',i===cur));}
+function step(n){cur=(cur+n+D.count)%D.count;draw();if(playing)schedule();}
+function schedule(){clearTimeout(timer);timer=setTimeout(()=>step(1),D.frames[cur].duration);}
+document.getElementById('play').onclick=()=>{playing=!playing;document.getElementById('play').textContent=playing?'❚❚ Pause':'▶ Play';if(playing)schedule();else clearTimeout(timer);};
+document.getElementById('prev').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);
+document.getElementById('onionChk').onchange=draw;
+document.getElementById('zoom').value=D.scale;zoom=D.scale;
+document.getElementById('zoom').onchange=e=>{zoom=+e.target.value;applyZoom();};
+imgs.forEach((im,i)=>{const c=document.createElement('canvas');c.width=c.height=64;c.title=D.frames[i].name;
+ if(im.complete){const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,0,0,64,64);}else im.onload=()=>{const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,0,0,64,64);};
+ c.onclick=()=>{cur=i;draw();};strip.appendChild(c);});
+document.getElementById('meta').textContent=D.project+' · '+D.sw+'×'+D.sh+' px · '+D.count+' frames · palette '+D.palette+' ('+D.colorCount+' colors)';
+document.getElementById('info').innerHTML='<tr><th>Size</th><td>'+D.sw+'×'+D.sh+' px</td></tr>'+'<tr><th>Frames</th><td>'+D.count+'</td></tr>'+
+ '<tr><th>Total time</th><td>'+D.frames.reduce((a,f)=>a+f.duration,0)+' ms</td></tr>'+'<tr><th>Palette</th><td>'+D.palette+' · '+D.colorCount+' colors</td></tr>'+
+ '<tr><th>Export</th><td>PNG · GIF · APNG · SVG · atlas</td></tr>';
+document.getElementById('palName').textContent=D.palette;
+document.getElementById('frameTags').innerHTML=D.frames.map((f,i)=>'<span class="tag">'+(i+1)+' '+f.name+(f.tags.length?' · '+f.tags.join('/'):'')+'</span>').join('');
+draw();
+</script></body></html>

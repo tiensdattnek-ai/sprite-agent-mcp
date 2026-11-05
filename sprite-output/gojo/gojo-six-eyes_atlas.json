@@ -1,0 +1,141 @@
+{
+  "frames": [
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_00.png",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    },
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_01.png",
+      "frame": {
+        "x": 35,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    },
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_02.png",
+      "frame": {
+        "x": 69,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    },
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_03.png",
+      "frame": {
+        "x": 1,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    },
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_04.png",
+      "frame": {
+        "x": 35,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    },
+    {
+      "filename": "Gojo_Satoru_·_Six_Eyes_05.png",
+      "frame": {
+        "x": 69,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      }
+    }
+  ],
+  "meta": {
+    "app": "sprite-agent-mcp",
+    "version": "1.0",
+    "image": "gojo-six-eyes_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 102,
+      "h": 68
+    },
+    "scale": "1"
+  }
+}

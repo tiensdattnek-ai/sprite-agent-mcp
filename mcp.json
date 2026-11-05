@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json.schemastore.org/mcp.json",
+  "_comment": "Copy the block you need. Agents: ONLY call the MCP tools — never edit this file or any other source file. See POLICY.md.",
+  "arena.ai Agent Mode / Claude Desktop / Cursor": {
+    "mcpServers": {
+      "sprite": {
+        "command": "npx",
+        "args": ["-y", "sprite-agent-mcp"],
+        "env": {
+          "SPRITE_OUTPUT_DIR": "./sprite-output",
+          "SPRITE_AUTOSAVE": "1"
+        }
+      }
+    }
+  },
+  "VS Code (.vscode/mcp.json)": {
+    "servers": {
+      "sprite": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "sprite-agent-mcp"]
+      }
+    }
+  },
+  "local checkout": {
+    "mcpServers": {
+      "sprite": {
+        "command": "node",
+        "args": ["/absolute/path/to/sprite-agent-mcp/dist/index.js"]
+      }
+    }
+  },
+  "remote / Streamable HTTP": {
+    "mcpServers": {
+      "sprite": {
+        "type": "http",
+        "url": "http://localhost:3100/mcp",
+        "headers": { "Authorization": "Bearer ${SPRITE_HTTP_TOKEN}" }
+      }
+    }
+  }
+}

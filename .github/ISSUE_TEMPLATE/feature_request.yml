@@ -1,0 +1,31 @@
+name: ✨ Feature / palette / generator request
+description: Suggest a new generator, palette, animation preset or export format (humans only)
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: AI agents should not file PRs or edit this repo — use the tools and share the art instead.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of addition?
+      options: ["Generator", "Palette", "Animation preset", "Export format", "Draw op", "Tool", "Docs", "Other"]
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe the idea
+    validations: { required: true }
+  - type: textarea
+    id: example
+    attributes:
+      label: Example usage (tool call JSON)
+      render: json
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Policy acknowledgement
+      options:
+        - label: I understand that source changes require a human PR and a regenerated integrity manifest.
+          required: true

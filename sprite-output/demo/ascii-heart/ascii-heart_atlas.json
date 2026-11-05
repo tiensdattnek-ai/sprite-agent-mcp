@@ -1,0 +1,119 @@
+{
+  "frames": [
+    {
+      "filename": "ASCII_Heart_00.png",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "duration": 120
+    },
+    {
+      "filename": "ASCII_Heart_01.png",
+      "frame": {
+        "x": 19,
+        "y": 1,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "duration": 120
+    },
+    {
+      "filename": "ASCII_Heart_02.png",
+      "frame": {
+        "x": 1,
+        "y": 19,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "duration": 120
+    },
+    {
+      "filename": "ASCII_Heart_03.png",
+      "frame": {
+        "x": 19,
+        "y": 19,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "duration": 120
+    }
+  ],
+  "meta": {
+    "app": "sprite-agent-mcp",
+    "version": "1.0.0",
+    "image": "ascii-heart_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 36,
+      "h": 36
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "pulse",
+        "from": 0,
+        "to": 3,
+        "direction": "forward"
+      }
+    ],
+    "layers": [
+      {
+        "name": "art",
+        "opacity": 255,
+        "blendMode": "normal"
+      }
+    ],
+    "slices": []
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "sprite-agent-mcp",
+  "version": "1.0.0",
+  "description": "Pixel-art & sprite-animation MCP server made exclusively for Arena.ai Agent Mode. MCP-only, source-read-only by policy and by code.",
+  "type": "module",
+  "license": "MIT",
+  "author": "sprite-agent-mcp contributors",
+  "keywords": [
+    "mcp", "model-context-protocol", "arena", "arena.ai", "agent-mode", "pixel-art",
+    "sprite", "sprite-animation", "spritesheet", "aseprite", "gif", "apng", "pixel",
+    "procedural-generation", "game-dev", "art-tools", "llm-tools"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arena-agent/sprite-agent-mcp.git"
+  },
+  "bugs": { "url": "https://github.com/arena-agent/sprite-agent-mcp/issues" },
+  "homepage": "https://github.com/arena-agent/sprite-agent-mcp#readme",
+  "bin": {
+    "sprite-agent-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist", "integrity", "assets", "README.md", "README.en.md", "AGENTS.md",
+    "POLICY.md", "LICENSE", "CHANGELOG.md", "mcp.json", "server.json", "smithery.yaml"
+  ],
+  "engines": { "node": ">=20.0.0" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/generate-manifest.mjs",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "integrity": "node scripts/generate-manifest.mjs",
+    "verify": "node scripts/verify.mjs",
+    "demo": "node scripts/demo.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "^2.1.2",
+    "@modelcontextprotocol/server": "^2.4.0",
+    "gifenc": "^1.0.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "frames": [
+    {
+      "filename": "Gojo_Satoru_·_Infinity_00.png",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    },
+    {
+      "filename": "Gojo_Satoru_·_Infinity_01.png",
+      "frame": {
+        "x": 35,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    },
+    {
+      "filename": "Gojo_Satoru_·_Infinity_02.png",
+      "frame": {
+        "x": 69,
+        "y": 1,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    },
+    {
+      "filename": "Gojo_Satoru_·_Infinity_03.png",
+      "frame": {
+        "x": 1,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    },
+    {
+      "filename": "Gojo_Satoru_·_Infinity_04.png",
+      "frame": {
+        "x": 35,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    },
+    {
+      "filename": "Gojo_Satoru_·_Infinity_05.png",
+      "frame": {
+        "x": 69,
+        "y": 35,
+        "w": 32,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32,
+        "h": 32
+      },
+      "duration": 120
+    }
+  ],
+  "meta": {
+    "app": "sprite-agent-mcp",
+    "version": "1.0.0",
+    "image": "gojo-satoru-infinity_sheet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 102,
+      "h": 68
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "idle_bob",
+        "from": 0,
+        "to": 5,
+        "direction": "forward"
+      }
+    ],
+    "layers": [
+      {
+        "name": "art",
+        "opacity": 255,
+        "blendMode": "normal"
+      }
+    ],
+    "slices": []
+  }
+}

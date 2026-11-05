@@ -1,0 +1,26 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      spriteOutputDir:
+        type: string
+        title: Output directory
+        description: Directory the write guard allows artwork to be written into.
+        default: ./sprite-output
+      spriteAutosave:
+        type: boolean
+        title: Autosave session
+        default: true
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        SPRITE_OUTPUT_DIR: config.spriteOutputDir || './sprite-output',
+        SPRITE_AUTOSAVE: config.spriteAutosave === false ? '0' : '1'
+      }
+    })
+  exampleConfig:
+    spriteOutputDir: ./sprite-output
+    spriteAutosave: true

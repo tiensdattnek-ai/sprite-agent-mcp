@@ -1,0 +1,16 @@
+src/
+tests/
+scripts/
+docs/
+examples/
+.github/
+.cursor/
+.vscode/
+sprite-output/
+coverage/
+node_modules/
+tsconfig.json
+vitest.config.ts
+*.map
+.env*
+.gitignore
